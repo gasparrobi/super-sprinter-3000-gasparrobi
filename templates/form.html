@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add/Edit user story</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+</head>
+<body>
+    <header>
+
+    </header>
+
+    <div class="container">
+        {% if new == True %}
+        <h1 class="list_title">User Story Manager - Add new Story</h1>
+        {% else %}
+        <h1 class="list_title">User Story Manager - Edit Story {{ story.id }}</h1>
+        {% endif %}
+        <div class="form_container">
+            <form method="POST" class="new_update">
+                {% if new == True %}
+                <label>Story Title:
+                    <textarea name="storytitle" required></textarea>
+                </label>
+                <label>User Story:
+                    <textarea rows="5" name="userstory" required></textarea>
+                </label>
+                <label>Acceptance Criteria:
+                <textarea name="criteria" required></textarea>
+                </label>
+                {% else %}
+                <label>Story Title:
+                    <textarea name="storytitle" required>{{ story.title }}</textarea>
+                </label>
+                <label>User Story:
+                    <textarea rows="5" name="userstory" required>{{ story.story }}</textarea>
+                </label>
+                <label>Acceptance Criteria:
+                <textarea name="criteria" required>{{ story.criteria }}</textarea>
+                </label>
+                {% endif %}
+                <div class="block">
+                    <label>Business Value:
+                        <select name="value">
+                            {% if new == True %}
+                                {% for i in range(len_v_options) %}
+                                    <option>{{ value_options[i] }}</option>
+                                {% endfor %}
+                            {% else %}
+                                    <option selected="selected">{{ story.value }}</option>
+                                {% for i in range(len_v_options) %}
+                                    <option>{{ value_options[i] }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                    </label>
+                </div>
+                <div class="block">
+                    <label>Estimation (h):
+                        <select name="estimation">
+                            {% if new == True %}
+                                {% for i in range(len_e_options) %}
+                                    <option value="{{ estimate_options[i] }}">{{ estimate_options[i] }}</option>
+                                {% endfor %}
+                            {% else %}
+                                    <option selected="selected">{{ story.estimation }}</option>
+                                {% for i in range(len_e_options) %}
+                                    <option value="{{ estimate_options[i] }}">{{ estimate_options[i] }}</option>
+                                {% endfor %}
+                            {% endif %}
+                        </select>
+                    </label>
+                </div>
+                <div class="block">
+                    <label>Status:
+                        <select name="status">
+                            {% if new == True %}
+                                <option>Planning</option>
+                                <option>To Do</option>
+                                <option>In Progress</option>
+                                <option>Review</option>
+                                <option>Done</option>
+                            {% else %}
+                                <option selected="selected">{{ story.status }}</option>
+                                <option>Planning</option>
+                                <option>To Do</option>
+                                <option>In Progress</option>
+                                <option>Review</option>
+                                <option>Done</option>
+                            {% endif %}
+                        </select>
+                    </label>
+                </div>
+                {% if new == True %}
+                <input type="submit" class="btn add_btn" value="Add New User Story">
+                {% else %}
+                <input type="submit" class="btn add_btn" value="Update Story">
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
