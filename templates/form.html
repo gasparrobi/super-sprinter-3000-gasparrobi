@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Add/Edit user story</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -26,7 +27,7 @@
                     <textarea rows="5" name="userstory" required></textarea>
                 </label>
                 <label>Acceptance Criteria:
-                <textarea name="criteria" required></textarea>
+                <textarea rows="5" name="criteria" required></textarea>
                 </label>
                 {% else %}
                 <label>Story Title:
@@ -36,7 +37,7 @@
                     <textarea rows="5" name="userstory" required>{{ story.story }}</textarea>
                 </label>
                 <label>Acceptance Criteria:
-                <textarea name="criteria" required>{{ story.criteria }}</textarea>
+                <textarea rows="5" name="criteria" required>{{ story.criteria }}</textarea>
                 </label>
                 {% endif %}
                 <div class="block">
@@ -97,6 +98,7 @@
                 <input type="submit" class="btn add_btn" value="Update Story">
                 {% endif %}
             </form>
+            <a class="back_link" href="{{ url_for('index') }}">click here to go back</a>
         </div>
     </div>
 </body>

@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
-	    <h1 class="list_title">User Stories</h1>
-	    <table style="width: 90%;">
-	    	<tr style="text-align: left;">
-		    	<th>ID</th>
-		    	<th>Title</th>
-		    	<th>User Story</th>
-		    	<th>Acceptance criteria</th>
-		    	<th>Business Value</th>
-		    	<th>Estimation</th>
-		    	<th>Status</th>
-	    	</tr>
-	    {% for item in stories %}
-	    	<tr">
-		    	<td>{{ item.id }}</td>
-		    	<td>{{ item.title }}</td>
-		    	<td>{{ item.story }}</td>
-		    	<td>{{ item.criteria }}</td>
-		    	<td>{{ item.value }}</td>
-		    	<td>{{ item.estimation }}</td>
-		    	<td>{{ item.status }}</td>
-		    	<td>
-                    <a href="{{ url_for("edit_user_story", story_id = item.id) }}" class="btn edit_btn">edit</a>
-                    <a href="{{ url_for("delete_story", story_id = item.id) }}" class="btn delete_btn">delete</a>
-		    	</td>
-		    </tr>
-	    {% endfor %}
-	    </table>
-	    <form action="{{ url_for('new_user_story') }}">
-	    	<input type="submit" name="add_story" class="btn add_btn" value="Add New User Story">
-	    </form>
+	    <div class="story_box">
+		    <h1 class="list_title">User Stories</h1>
+		    <table style="width: 90%;">
+		    	<tr style="text-align: left;">
+			    	<th>ID</th>
+			    	<th>Title</th>
+			    	<th>User Story</th>
+			    	<th>Acceptance criteria</th>
+			    	<th>Business Value</th>
+			    	<th>Estimation</th>
+			    	<th>Status</th>
+		    	</tr>
+		    {% for item in stories %}
+		    	<tr">
+			    	<td>{{ item.id }}</td>
+			    	<td>{{ item.title }}</td>
+			    	<td>{{ item.story }}</td>
+			    	<td>{{ item.criteria }}</td>
+			    	<td>{{ item.value }}</td>
+			    	<td>{{ item.estimation }}</td>
+			    	<td>{{ item.status }}</td>
+			    	<td>
+	                    <a href="{{ url_for("edit_user_story", story_id = item.id) }}" class="btn edit_btn">edit</a>
+	                    <a href="{{ url_for("delete_story", story_id = item.id) }}" class="btn delete_btn">delete</a>
+			    	</td>
+			    </tr>
+		    {% endfor %}
+		    </table>
+		    <form class="add_form" action="{{ url_for('new_user_story') }}">
+		    	<input type="submit" name="add_story" class="btn add_btn" value="Add New User Story">
+		    </form>
+	    </div>
     </div>
 
 </body>
