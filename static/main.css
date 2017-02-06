@@ -1,21 +1,33 @@
 body {
-	font-family: sans-serif;
+	background-color: #f5f5f5;
+	font-family: 'Raleway', sans-serif;
 	font-size: 0.8em;
 }
 
 .container {
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-start;
+	justify-content: center;
 	align-items: center;
 	height: 100vh;
 }
 
+.story_box {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 80%;
+}
+
 .list_title {
-	margin-bottom: 60px;
+	font-size: 24px;
+	font-weight: 300;
+	margin-bottom: 30px;
 }
 
 table {
+	border-spacing: 0px 15px;
 }
 
 tr {
@@ -23,20 +35,44 @@ tr {
 	padding: 20px 0;
 }
 
+tr:nth-child(n+2) {
+	background-color: #fff;
+	box-shadow: 1px 1px 3px 1px #e3e3e3;
+}
+
 th {
 	color: #757575;
-	padding: 0 10px;
+	padding: 0 20px;
 	padding-bottom: 20px;
 }
 
 td {
+	font-weight: 300;
 	display: table-cell;
-	padding: 20px 10px;
-	border-bottom: 1px solid #e3e3e3;
+	padding: 30px 20px;
+}
+
+td:first-child {
+	border-radius: 3px 0 0 3px;
 }
 
 td:last-child {
 	min-width: 120px;
+	border-radius: 0 3px 3px 0;
+	text-align: right;
+}
+
+td:nth-child(3){
+	min-width: 100px;
+}
+
+td:nth-child(4){
+	min-width: 200px;
+	max-width: 400px;
+}
+
+td:nth-child(7){
+	min-width: 50px;
 }
 
 .btn {
@@ -72,8 +108,17 @@ td:last-child {
 	color: white;
 }
 
+.add_form {
+	display: flex;
+	justify-content: flex-end;
+	width: 90%;
+}
+
 .add_btn {
-	margin-top: 30px;
+	font-family: 'Raleway', sans-serif;
+	font-size: 1em;
+	font-weight: ;
+	margin-top: 20px;
 	padding: 15px;
 	background: transparent;
 	border: 1px solid #444;
@@ -101,11 +146,35 @@ select {
 	margin-left: 20px;
 }
 
+label {
+	font-weight: 300;
+}
+
 textarea {
 	display: block;
 	width: 400px;
+	margin-top: 5px;
 	margin-bottom: 20px;
 	border-radius: 3px;
+}
+
+.form_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 400px;
+	padding: 60px;
+	background: #fff;
+	border-radius: 5px;
+	box-shadow: 0px 0px 145px 1px #e3e3e3;
+}
+
+.back_link {
+	font-size: 0.9em;
+	text-decoration: none;
+	margin-top: 30px;
+	margin-bottom: -30px;
 }
 
 .block {
