@@ -30,8 +30,8 @@
 			    	<td>{{ item.estimation }}</td>
 			    	<td>{{ item.status }}</td>
 			    	<td>
-	                    <a href="{{ url_for("edit_user_story", story_id = item.id) }}" class="btn edit_btn">edit</a>
-	                    <a href="{{ url_for("delete_story", story_id = item.id) }}" class="btn delete_btn">delete</a>
+	                    <a href="{{ url_for('edit_user_story', story_id = item.id) }}" class="btn edit_btn">edit</a>
+	                    <a href="{{ url_for('delete_story', story_id = item.id) }}" class="btn delete_btn">delete</a>
 			    	</td>
 			    </tr>
 		    {% endfor %}
