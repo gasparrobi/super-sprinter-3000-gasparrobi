@@ -12,6 +12,7 @@ estimate_options = AppFunctions.generate_estimation_options()
 len_e_options = len(estimate_options)
 
 
+@app.route("/list")
 @app.route("/", methods=["GET", "POST"])
 def index():
     stories = UserStoryManager.select()
