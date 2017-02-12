@@ -29,18 +29,12 @@ def new_user_story(new=True):
                                len_e_options=len_e_options,
                                len_v_options=len_v_options)
     else:
-        storytitle = request.form.get('storytitle')
-        userstory = request.form.get('userstory')
-        criteria = request.form.get('criteria')
-        value = request.form.get('value')
-        estimation = request.form.get('estimation')
-        status = request.form.get('status')
-        UserStoryManager.create(title=storytitle,
-                                story=userstory,
-                                criteria=criteria,
-                                value=value,
-                                estimation=estimation,
-                                status=status)
+        UserStoryManager.create(title=request.form.get('storytitle'),
+                                story=request.form.get('userstory'),
+                                criteria=request.form.get('criteria'),
+                                value=request.form.get('value'),
+                                estimation=request.form.get('estimation'),
+                                status=request.form.get('status'))
         return redirect(url_for("index"))
 
 
@@ -56,18 +50,12 @@ def edit_user_story(story_id, new=False):
                                len_e_options=len_e_options,
                                len_v_options=len_v_options)
     else:
-        storytitle = request.form.get('storytitle')
-        userstory = request.form.get('userstory')
-        criteria = request.form.get('criteria')
-        value = request.form.get('value')
-        estimation = request.form.get('estimation')
-        status = request.form.get('status')
-        story.title = storytitle
-        story.story = userstory
-        story.criteria = criteria
-        story.value = value
-        story.estimation = estimation
-        story.status = status
+        story.title = request.form.get('storytitle')
+        story.story = request.form.get('userstory')
+        story.criteria = request.form.get('criteria')
+        story.value = request.form.get('value')
+        story.estimation = request.form.get('estimation')
+        story.status = request.form.get('status')
         story.save()
         return redirect(url_for("index"))
 
